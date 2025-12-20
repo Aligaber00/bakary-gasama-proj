@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
+import os
 st.set_page_config(
     page_title="Smart Phone Price Predictor",
     page_icon="📱",
@@ -138,14 +139,18 @@ st.markdown('<div class="title-text">📱 Smart Phone Price Predictor</div>', un
 st.markdown('<div class="subtitle-text">AI-powered smartphone value estimation</div>', unsafe_allow_html=True)
 
 
-brand_encoder = joblib.load("brand_target_encoder.pkl")
+BASE_DIR = os.path.dirname(__file__)
+
+# Load the encoders/models using full paths
+brand_encoder = joblib.load(os.path.join(BASE_DIR, "brand_target_encoder.pkl"))
+
 models = {
-    "Voting Classifier": joblib.load("VotingClassifierSoft.pkl"),
-    "Gradient Boosting": joblib.load("gradient_boosting_smote.pkl"),
-    "Random Forest": joblib.load("random_forest_smote.pkl"),
-    "Logistic Regression": joblib.load("logistic_regression_smote.pkl"),
-    "SVM": joblib.load("svm_smote.pkl"),
-    "KNN": joblib.load("knn_smote.pkl")
+    "Voting Classifier": joblib.load(os.path.join(BASE_DIR, "VotingClassifierSoft.pkl")),
+    "Gradient Boosting": joblib.load(os.path.join(BASE_DIR, "gradient_boosting_smote.pkl")),
+    "Random Forest": joblib.load(os.path.join(BASE_DIR, "random_forest_smote.pkl")),
+    "Logistic Regression": joblib.load(os.path.join(BASE_DIR, "logistic_regression_smote.pkl")),
+    "SVM": joblib.load(os.path.join(BASE_DIR, "svm_smote.pkl")),
+    "KNN": joblib.load(os.path.join(BASE_DIR, "knn_smote.pkl"))
 }
 model_name = st.selectbox("Choose Model (Voting Classifier Recommended)", list(models.keys()))
 model = models[model_name]

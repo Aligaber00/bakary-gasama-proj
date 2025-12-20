@@ -2,6 +2,89 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
+st.set_page_config(
+    page_title="Smart Phone Price Predictor",
+    page_icon="📱",
+    layout="wide"
+)
+
+# ---------------- CUSTOM CSS ----------------
+st.markdown("""
+<style>
+/* Main background */
+.stApp {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* Title */
+.title-text {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    color: #00f5ff;
+    text-shadow: 0 0 20px rgba(0,245,255,0.6);
+}
+
+/* Subtitle */
+.subtitle-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #d1d1d1;
+    margin-bottom: 30px;
+}
+
+/* Card (Glassmorphism) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Input labels */
+label {
+    color: #00f5ff !important;
+    font-weight: 600;
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, #00f5ff, #00c3ff);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 12px 25px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,245,255,0.6);
+    transition: 0.3s ease-in-out;
+}
+
+.stButton>button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(0,245,255,0.9);
+}
+
+/* Metrics */
+[data-testid="metric-container"] {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #141e30, #243b55);
+}
+</style>
+""", unsafe_allow_html=True)
+st.markdown('<div class="title-text">📱 Smart Phone Price Predictor</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle-text">AI-powered smartphone value estimation</div>', unsafe_allow_html=True)
+
 
 brand_encoder = joblib.load("brand_target_encoder.pkl")
 models = {

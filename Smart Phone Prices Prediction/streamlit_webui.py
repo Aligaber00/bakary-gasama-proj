@@ -2,11 +2,11 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
-st.set_page_config(
-    page_title="Smart Phone Price Predictor",
-    page_icon="📱",
-    layout="wide"
-)
+# st.set_page_config(
+#     page_title="Smart Phone Price Predictor",
+#     page_icon="📱",
+#     layout="wide"
+# )
 
 # ---------------- CUSTOM CSS ----------------
 st.markdown("""
@@ -80,6 +80,7 @@ label {
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #141e30, #243b55);
 }
+
 </style>
 """, unsafe_allow_html=True)
 st.markdown('<div class="title-text">📱 Smart Phone Price Predictor</div>', unsafe_allow_html=True)
@@ -167,7 +168,20 @@ st.subheader("Basic Specs")
 rating = st.number_input("Rating (0-100)", min_value=0, max_value=100, step=1)
 clock_speed = st.number_input("Clock Speed (GHz, 1.0-4.6)", min_value=1.0, max_value=4.6, step=0.01)
 ram = st.number_input("RAM (GB)", min_value=1, max_value=24, step=1)
-ram_tier = st.selectbox("RAM Tier", [1, 2, 3, 4])
+ram_tier_map = {
+    "1 - Budget": 1,
+    "2 - Mid-Range": 2,
+    "3 - High-End": 3,
+    "4 - Flagship": 4
+}
+
+ram_tier_label = st.selectbox(
+    "RAM Tier",
+    list(ram_tier_map.keys())
+)
+
+ram_tier = ram_tier_map[ram_tier_label]
+
 fast_charging_power = st.number_input("Fast Charging Power (W, 0-250)",min_value=0, max_value=250, step=5)
 memory_card_support = st.checkbox("Memory Card Support", value=True)
 if memory_card_support:

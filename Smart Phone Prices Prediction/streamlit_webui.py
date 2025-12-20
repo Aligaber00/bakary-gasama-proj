@@ -5,83 +5,135 @@ import joblib
 st.set_page_config(
     page_title="Smart Phone Price Predictor",
     page_icon="📱",
-    layout="wide"
+    layout="centered"
 )
 
 # ---------------- CUSTOM CSS ----------------
 st.markdown("""
 <style>
-/* Main background */
+
+/* ================= MAIN BACKGROUND ================= */
 .stApp {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
+    background: linear-gradient(
+        135deg,
+        #e9f7ff,
+        #cfefff,
+        #9fdcff,
+        #6fc6ff
+    );
+    background-attachment: fixed;
+    color: #0b1f33;
 }
 
-/* Title */
+/* ================= TITLE ================= */
 .title-text {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 3.3rem;
+    font-weight: 900;
     text-align: center;
-    color: #00f5ff;
-    text-shadow: 0 0 20px rgba(0,245,255,0.6);
+    color: #003a6f;
+    letter-spacing: 1px;
+    text-shadow: 0 6px 20px rgba(0,115,230,0.35);
 }
 
-/* Subtitle */
+/* ================= SUBTITLE ================= */
 .subtitle-text {
     text-align: center;
-    font-size: 1.2rem;
-    color: #d1d1d1;
-    margin-bottom: 30px;
+    font-size: 1.25rem;
+    color: #124c7c;
+    margin-bottom: 35px;
 }
 
-/* Card (Glassmorphism) */
+/* ================= GLASS CARD ================= */
 .glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow:
+        0 18px 40px rgba(0,70,140,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
-/* Input labels */
+/* ================= INPUT LABELS ================= */
 label {
-    color: #00f5ff !important;
+    color: #003a6f !important;
+    font-weight: 700;
+}
+
+/* ================= INPUT FIELDS ================= */
+input, textarea, select {
+    color: #0b1f33 !important;
+    background-color: rgba(255,255,255,0.95) !important;
+    border-radius: 10px !important;
+}
+
+/* ================= CHECKBOX TEXT ================= */
+.stCheckbox label {
+    color: #124c7c !important;
     font-weight: 600;
 }
 
-/* Buttons */
+/* ================= BUTTON ================= */
 .stButton>button {
-    background: linear-gradient(135deg, #00f5ff, #00c3ff);
-    color: black;
-    font-weight: bold;
-    border-radius: 12px;
-    padding: 12px 25px;
+    background: linear-gradient(
+        135deg,
+        #0077ff,
+        #00b4ff,
+        #5ddcff
+    );
+    color: #00121f;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 16px;
+    padding: 14px 30px;
     border: none;
-    box-shadow: 0 0 20px rgba(0,245,255,0.6);
-    transition: 0.3s ease-in-out;
+    box-shadow: 0 12px 35px rgba(0,120,255,0.6);
+    transition: all 0.35s ease-in-out;
 }
 
 .stButton>button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 35px rgba(0,245,255,0.9);
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 22px 55px rgba(0,120,255,0.85);
 }
 
-/* Metrics */
+/* ================= METRICS ================= */
 [data-testid="metric-container"] {
-    background: rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.8),
+        rgba(255,255,255,0.6)
+    );
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 10px 28px rgba(0,80,160,0.25);
+    color: #003a6f;
 }
 
-/* Sidebar */
+/* ================= SIDEBAR ================= */
 section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #141e30, #243b55);
+    background: linear-gradient(
+        180deg,
+        #dff3ff,
+        #bfe6ff,
+        #8fd1ff
+    );
+    color: #003a6f;
 }
+
+/* ================= SECTION HEADERS ================= */
+h1, h2, h3 {
+    color: #003a6f;
+    font-weight: 800;
+}
+
 </style>
 """, unsafe_allow_html=True)
+
+
+
+
 st.markdown('<div class="title-text">📱 Smart Phone Price Predictor</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle-text">AI-powered smartphone value estimation</div>', unsafe_allow_html=True)
 
@@ -167,11 +219,15 @@ clock_speed = st.number_input("Clock Speed (GHz, 1.0-4.6)", min_value=1.0, max_v
 ram = st.number_input("RAM (GB)", min_value=1, max_value=24, step=1)
 ram_tier = st.selectbox("RAM Tier", [1, 2, 3, 4])
 fast_charging_power = st.number_input("Fast Charging Power (W, 0-250)",min_value=0, max_value=250, step=5)
+# ================== MEMORY CARD ==================
 memory_card_support = st.checkbox("Memory Card Support", value=True)
+
 if memory_card_support:
-    memory_card_size = st.number_input("Memory Card Size (GB)", min_value=0, max_value=2048, step=1) 
+    memory_card_size = st.number_input("Memory Card Size (GB)", 0, 2048)
 else:
-    st.text_input("Memory Card Size (GB)", value = "", disabled=True, placeholder="No Memory Card Support")      
+    memory_card_size = 0
+    st.text_input("Memory Card Size (GB)", value="0", disabled=True)
+      
 
 storage = st.number_input("Storage (GB)", min_value=4, max_value=2048, step=1)
 

@@ -140,7 +140,7 @@ st.markdown('<div class="title-text">📱 Smart Phone Price Predictor</div>', un
 st.markdown('<div class="subtitle-text">AI-powered smartphone value estimation</div>', unsafe_allow_html=True)
 
 
-BASE_DIR = Path.cwd()  # Current working directory
+BASE_DIR = Path(__file__).resolve().parent
 brand_encoder = joblib.load(BASE_DIR / "brand_target_encoder.pkl")
 
 models = {

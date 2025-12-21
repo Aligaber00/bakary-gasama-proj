@@ -52,7 +52,7 @@ Key preprocessing steps included:
 - Correlation-based feature selection
 
 📌 **Example: Correlation Heatmap (Before Feature Selection)**  
-![Correlation Heatmap]<img width="1976" height="1698" alt="image" src="https://github.com/user-attachments/assets/c6abaa3c-9ee5-4f90-8d0f-8da7766fb137" />
+<img width="1976" height="1698" alt="image" src="https://github.com/user-attachments/assets/c6abaa3c-9ee5-4f90-8d0f-8da7766fb137" />
 
 
 ---

@@ -69,9 +69,9 @@ Key insights:
 
 📊 **Sample Visualizations**
 
-![RAM vs Storage](images/ram_storage_pairplot.png)  
-![Price by Brand](images/price_by_brand.png)  
-![Processor vs Price](images/processor_price_countplot.png)
+![RAM vs Storage] <img width="326" height="248" alt="image" src="https://github.com/user-attachments/assets/ef20bac5-5e0b-49c2-a131-2d6013f77cde" />
+![Price by Brand] <img width="940" height="286" alt="image" src="https://github.com/user-attachments/assets/99b6d507-edfe-4cb3-b45a-3ec2e672fae1" />
+![Processor vs Price] <img width="428" height="208" alt="image" src="https://github.com/user-attachments/assets/ff0c73ab-c7a7-4d74-bc39-4a7f24cd7b92" />
 
 ---
 
@@ -80,10 +80,10 @@ Key insights:
 To address class imbalance, **SMOTE** was applied **only to the training set** to avoid data leakage.
 
 📊 **Class Distribution Before SMOTE**  
-![Before SMOTE](images/class_distribution_before_smote.png)
+![Before SMOTE] <img width="975" height="218" alt="image" src="https://github.com/user-attachments/assets/8a341258-491d-4758-b8dc-102401f0261b" />
 
 📊 **Class Distribution After SMOTE**  
-![After SMOTE](images/class_distribution_after_smote.png)
+![After SMOTE] <img width="627" height="364" alt="image" src="https://github.com/user-attachments/assets/01c0aa50-9690-4928-96fc-f5a478e800b4" />
 
 ---
 
@@ -107,7 +107,8 @@ The following classification models were implemented and optimized:
 - Best parameters used for final training
 
 📸 **Example: Hyperparameter Search Output**  
-![Grid Search](images/hyperparameter_tuning.png)
+![Grid Search] <img width="975" height="914" alt="image" src="https://github.com/user-attachments/assets/167de21e-712f-4970-b551-9f103aa008a4" />
+<img width="975" height="750" alt="image" src="https://github.com/user-attachments/assets/2ad1fb62-9793-4765-a4cc-198b4ec88c50" />
 
 ---
 
@@ -116,7 +117,7 @@ The following classification models were implemented and optimized:
 Training duration was recorded for selected models to compare computational cost vs performance.
 
 📊 **Training Time Comparison**  
-![Training Time](images/model_training_time.png)
+![Training Time] <img width="975" height="456" alt="image" src="https://github.com/user-attachments/assets/7606c1ba-a246-4ee9-a707-a4ef5bc0c4f2" />
 
 ---
 
@@ -134,23 +135,21 @@ These metrics provide better insight, especially under class imbalance.
 ## 📈 ROC–AUC Curves
 
 ### Combined ROC–AUC Curve
-![Combined ROC](images/roc_auc_all_models.png)
+![Combined ROC] <img width="764" height="496" alt="image" src="https://github.com/user-attachments/assets/06c31fe0-56ad-41a8-9ae3-5c24d2e48afa" />
 
 ### Individual ROC–AUC Curves
-![LR ROC](images/roc_logistic.png)  
-![RF ROC](images/roc_random_forest.png)  
-![SVM ROC](images/roc_svm.png)
+![RF ROC]  <img width="680" height="595" alt="image" src="https://github.com/user-attachments/assets/4889d919-d5ea-4828-9851-4a8d4844b327" />
+![SVM ROC] <img width="682" height="597" alt="image" src="https://github.com/user-attachments/assets/febcc839-c034-4b20-92da-8349fec49127" />
 
 ---
 
 ## 📉 Average Precision (AP) Curves
 
 ### Combined AP Curve
-![Combined AP](images/ap_all_models.png)
+![Combined AP] <img width="975" height="772" alt="image" src="https://github.com/user-attachments/assets/3eb104e2-7311-4cbc-ae26-82d1d6161fb8" />
 
 ### Individual AP Curves
-![GB AP](images/ap_gradient_boosting.png)  
-![Voting AP](images/ap_voting_classifier.png)
+![RF AP] <img width="975" height="772" alt="image" src="https://github.com/user-attachments/assets/d975f7be-118a-4d6b-bad7-2607ed23bb16" />
 
 ---
 
@@ -158,8 +157,8 @@ These metrics provide better insight, especially under class imbalance.
 
 Feature importance was extracted for tree-based models to improve interpretability.
 
-![Random Forest Feature Importance](images/feature_importance_rf.png)  
-![Gradient Boosting Feature Importance](images/feature_importance_gb.png)
+![Random Forest Feature Importance] <img width="905" height="1034" alt="image" src="https://github.com/user-attachments/assets/24c2d615-37b9-4f85-918b-fc53e9c58320" />
+![Gradient Boosting Feature Importance] <img width="975" height="592" alt="image" src="https://github.com/user-attachments/assets/70bafd74-4f60-430d-9a83-6b002d7c319f" />
 
 ---
 
@@ -169,7 +168,7 @@ Feature importance was extracted for tree-based models to improve interpretabili
 - Consistent performance across folds observed
 
 📊 **Cross-Validation Scores**  
-![KFold](images/kfold_scores.png)
+![KFold] <img width="975" height="192" alt="image" src="https://github.com/user-attachments/assets/ed5bef15-bf6f-444f-bd61-64d8b8a8cef2" />
 
 ---
 
@@ -178,7 +177,7 @@ Feature importance was extracted for tree-based models to improve interpretabili
 An ensemble Voting Classifier was implemented to combine the strengths of top-performing models.
 
 📸 **Voting Classifier Results**  
-![Voting CM](images/voting_confusion_matrix.png)
+![Voting CM] <img width="466" height="488" alt="image" src="https://github.com/user-attachments/assets/318c6707-42fe-418b-be91-e4324b56b4e0" />
 
 ---
 
@@ -189,7 +188,7 @@ An ensemble Voting Classifier was implemented to combine the strengths of top-pe
 - Ready for future deployment
 
 📸 **Model Saving Output**  
-![Model Save](images/model_saving.png)
+![Model Save] <img width="975" height="416" alt="image" src="https://github.com/user-attachments/assets/3b0c031a-152d-426d-97e9-fbe09a654001" />
 
 ---
 
@@ -210,6 +209,14 @@ The final selected model demonstrated strong generalization and robust class sep
 
 This project demonstrates a complete and production-ready machine learning workflow for smartphone price classification.  
 By focusing on **AUC-ROC and Average Precision**, the evaluation reflects real-world model reliability rather than surface-level accuracy.
+
+---
+
+📸 **Model Saving Output**
+
+<img width="975" height="439" alt="image" src="https://github.com/user-attachments/assets/1f605d08-9076-4afd-ab61-81f22bb0166f" />
+<img width="975" height="266" alt="image" src="https://github.com/user-attachments/assets/aa989087-5b6a-4516-92ae-bf07c31443c4" />
+<img width="975" height="298" alt="image" src="https://github.com/user-attachments/assets/1f90c042-ebfd-4008-ac64-24c3ffc9ea1d" />
 
 ---
 
